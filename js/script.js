@@ -42,24 +42,29 @@
 
   const keyDownHandler = (e) => {
     const key = e.key;
-    let movements = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+    let movements = ["ArrowLeft", "ArrowRight"];
     if (movements.includes(key)) {
       e.preventDefault();
-       if (key === "ArrowLeft") {
+      if (key === "ArrowLeft") {
         game.player.directionX = -1;
       } else if (key === "ArrowRight") {
         game.player.directionX = 1;
       }
     }
   };
+  
   const keyUpHandler = (e) => {
     const key = e.key;
-    let movements = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
-    if (key === "ArrowLeft" && game.player.directionX === -1) {
-      game.player.directionX = 0;
-    } else if (key === "ArrowRight" && game.player.directionX === 1) {
-      game.player.directionX = 0;
+    let movements = ["ArrowLeft", "ArrowRight"];
+    if (movements.includes(key)) {
+      e.preventDefault();
+      if (key === "ArrowLeft" && game.player.directionX === -1) {
+        game.player.directionX = 0;
+      } else if (key === "ArrowRight" && game.player.directionX === 1) {
+        game.player.directionX = 0;
+      }
     }
   };
+  
   window.addEventListener("keydown", keyDownHandler);
   window.addEventListener("keyup", keyUpHandler);
