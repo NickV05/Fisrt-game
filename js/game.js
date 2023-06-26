@@ -11,6 +11,25 @@ class Game {
 
         this.gameIsOver = false;
         this.enemies = [];
+        this.hp = document.createElement("img");
+        this.gameScreen.appendChild(this.hp);
+        this.hp.src = "../images/sonicHP.jpg";
+        this.hp.width = 150;
+        this.hp.height = 100;
+        this.hp.style.position = "absolute";
+        this.hp.style.left = "1330px" ;
+        this.hp.style.top = "45px" ;
+        this.hpoints = 5; 
+        this.lives = document.createElement("h3");
+        this.gameScreen.appendChild(this.lives);
+        this.lives.textContent = `${this.hpoints}`;
+        this.lives.style.position = "absolute";
+        this.lives.style.left = "1390px";
+        this.lives.style.top = "0px";
+        this.lives.style.fontSize = "60px";
+        this.lives.style.color = "white";
+        this.lives.style.fontFamily = "Monospace";
+        this.lives.style.fontWeight = "bold";
       }
       start() {
         this.gameScreen.style.width = `${this.width}px`;
@@ -32,7 +51,7 @@ class Game {
         if (Math.random() > 0.98 && this.enemies.length < 1) {
           const randomIndex = Math.floor(Math.random() * (this.bots.length-1));
           const randomEnemy = this.bots[randomIndex];
-          this.enemies.push(new bee(this.gameScreen));
+          this.enemies.push(new bug(this.gameScreen));
         }
     
         for (let i = 0; i < this.enemies.length; i++) {
@@ -64,6 +83,8 @@ class Game {
 
           else if (this.player.didCollide(obstacle) && !this.player.jumping) {
             this.player.pushBack(obstacle)
+            this.hpoints -= 1/2;
+            this.lives.textContent = `${this.hpoints}`;
             let blinkCount = 0;
             const blinking = setInterval(() =>{
               this.player.element.style.opacity ="0.4"
@@ -77,18 +98,17 @@ class Game {
                 clearInterval(blinking)
               }
             }, 300);
-            this.lives--;
           }
 
           else if (obstacle.left < 0) {
             this.score++;
             obstacle.element.remove();
             this.enemies.splice(i, 1);
-            i--;
+            
           }
         }
     
-        if (this.lives === 0) {
+        if (this.hpoints === 0) {
           this.endGame();
         }
         }

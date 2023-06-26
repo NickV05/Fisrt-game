@@ -3,7 +3,7 @@ class bee {
       this.gameScreen = gameScreen;
       this.width = 190;
       this.height = 107;
-      this.left = 1340;
+      this.left = 1330;
       this.top = 500;
       this.directionX = 0;
       this.directionY = 0;
@@ -37,7 +37,7 @@ class bug {
       this.gameScreen = gameScreen;
       this.width = 190;
       this.height = 107;
-      this.left = 1340;
+      this.left = 1330;
       this.top = 540;
       this.directionX = 0;
       this.directionY = 0;
@@ -73,7 +73,7 @@ class crab {
       this.gameScreen = gameScreen;
       this.width = 180;
       this.height = 150;
-      this.left = 1340;
+      this.left = 1330;
       this.top = 500;
       this.directionX = 0;
       this.directionY = 0;
@@ -108,7 +108,7 @@ class robot {
         this.gameScreen = gameScreen;
         this.width = 180;
         this.height = 150;
-        this.left = 1360;
+        this.left = 1350;
         this.top = 510;
         this.directionX = 0;
         this.directionY = 0;
