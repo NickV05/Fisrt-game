@@ -46,11 +46,11 @@ const keyDownHandler = (e) => {
   if (movements.includes(key)) {
     e.preventDefault();
     if (key === "ArrowLeft") {
-      game.player.directionX = -3;
+      game.player.directionX = -5;
       game.player.element.src = "../images/running.gif"
       game.player.element.style.transform = "scaleX(-1)"
     } else if (key === "ArrowRight") {
-      game.player.directionX = 3;
+      game.player.directionX = 5;
       game.player.element.style.transform = ""
       game.player.element.src = "../images/running.gif"
       
@@ -66,10 +66,10 @@ const keyUpHandler = (e) => {
   let movements = ["ArrowLeft", "ArrowRight"];
   if (movements.includes(key)) {
     e.preventDefault();
-    if (key === "ArrowLeft" && game.player.directionX === -3) {
+    if (key === "ArrowLeft" && game.player.directionX === -5) {
       game.player.directionX = 0;
       game.player.element.src = "../images/sonic.png";
-    } else if (key === "ArrowRight" && game.player.directionX === 3) {
+    } else if (key === "ArrowRight" && game.player.directionX === 5) {
       game.player.directionX = 0;
       game.player.element.src = "../images/sonic.png";
     }

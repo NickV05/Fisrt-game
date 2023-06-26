@@ -9,6 +9,14 @@ class Game {
           150,
           "../images/sonic.png"
         );
+        this.spikes = new Spikes(
+          this.gameScreen,
+          200,
+          500,
+          100,
+          150,
+          "../images/spikes.png"
+        )
         this.gameIsOver = false;
       }
       start() {

@@ -41,7 +41,7 @@ class Player {
         console.log("jump");
         this.jumping = true;
         const gravity = 0.6;
-        const initialJumpSpeed = 15;
+        const initialJumpSpeed = 17;
         const minY = 0;
         const maxY = 480;
     
