@@ -19,6 +19,7 @@ class Player {
   
       this.element.style.left = `${this.left}px`;
       this.element.style.top = `${this.top}px`;
+      this.element.style.opacity = "1";
 
       this.jumping = false;
       this.jumpHeight = 250; 
@@ -87,7 +88,7 @@ class Player {
         console.log("jump");
         this.pushing = true;
         const gravity = 0.6;
-        const initialJumpSpeed = 17;
+        const initialJumpSpeed = 15;
         const minY = 0;
         const maxY = 480;
     

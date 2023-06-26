@@ -7,7 +7,6 @@ class Game {
           new bug(this.gameScreen, 0, 0, 190, 107, "../images/bug.gif"),
           new crab(this.gameScreen, 0, 0, 180, 150, "../images/crab.gif"),
           new robot(this.gameScreen, 0, 0, 180, 150, "../images/robot.gif"),
-          new spikes(this.gameScreen, 0, 0, 90, 100, "../images/spikes.gif")
         ];
 
         this.gameIsOver = false;
@@ -44,22 +43,41 @@ class Game {
           
     
       if (this.player.didCollide(obstacle) && this.player.jumping) {
-            const delay1 = setTimeout(() => {
-            obstacle.element.src = "../images/Explosion.gif"
-            const delay2 = setTimeout(() => {
-              obstacle.element.remove();
-            this.enemies.splice(i, 1);
-            }, 500);
-          }, 100);
+                
+                this.imag = document.createElement("img");
+                this.gameScreen.appendChild(this.imag);
+                this.imag.src = "../images/Explosion.gif";
+                this.imag.width = obstacle.width;
+                this.imag.height = obstacle.height;
+                this.imag.style.position = "absolute";
+                const obstacleRect = obstacle.element.getBoundingClientRect();
+                this.imag.style.left = `${obstacleRect.left}px`;
+                this.imag.style.top = `${obstacleRect.top}px`;
+                obstacle.element.remove();
+                this.enemies.splice(i, 1);
+                const delay4 = setTimeout(() => { 
+                  this.imag.remove();
+                    },500)
+                
+            
           }
 
           else if (this.player.didCollide(obstacle) && !this.player.jumping) {
-            
             this.player.pushBack(obstacle)
+            let blinkCount = 0;
+            const blinking = setInterval(() =>{
+              this.player.element.style.opacity ="0.4"
+              if (this.player.element.style.opacity ="0.4") {
+                const delay3 = setTimeout(() => { 
+              this.player.element.style.opacity = "1"
+                },100)
+              };
+              blinkCount ++;
+              if(blinkCount >= 3){
+                clearInterval(blinking)
+              }
+            }, 300);
             this.lives--;
-            
-          
-          
           }
 
           else if (obstacle.left < 0) {
