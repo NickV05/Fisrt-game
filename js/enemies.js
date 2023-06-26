@@ -1,4 +1,4 @@
-class Spikes {
+class Enemy {
     constructor(gameScreen, left, top, width, height, imgSrc) {
         this.gameScreen = gameScreen;
         this.width = 90;
@@ -7,17 +7,28 @@ class Spikes {
         this.top = 532;
         this.directionX = 0;
         this.directionY = 0;
-        this.spikes = document.createElement("img");
-        this.gameScreen.appendChild(this.spikes);
-        this.spikes.src = "../images/spikes.png";
-        this.spikes.style.position = "absolute";
-        this.spikes.style.visibility = "visible";
+        this.element = document.createElement("img");
+        this.gameScreen.appendChild(this.element);
+        this.element.src = "../images/spikes.png";
+        this.element.style.position = "absolute";
 
-        this.spikes.style.width = `${this.width}px`;
-        this.spikes.style.height = `${this.height}px`;
+        this.element.style.width = `${this.width}px`;
+        this.element.style.height = `${this.height}px`;
     
-        this.spikes.style.left = `${this.left}px`;
-        this.spikes.style.top = `${this.top}px`;
+        this.element.style.left = `${this.left}px`;
+        this.element.style.top = `${this.top}px`;
 
+      }
+      updatePosition() {
+       
+        this.element.style.left = `${this.left}px`;
+        this.element.style.top = `${this.top}px`;
+      }
+    
+      move() {
+       
+        this.left -= 3;
+        
+        this.updatePosition();
       }
 }
