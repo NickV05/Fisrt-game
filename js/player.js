@@ -38,17 +38,17 @@ class Player {
 
     jump() {
       if (!this.jumping) {
-        console.log("jump")
+        console.log("jump");
         this.jumping = true;
         const gravity = 0.6;
         const initialJumpSpeed = 15;
-        const minY = 0; 
-        const maxY = 480; 
-        
+        const minY = 0;
+        const maxY = 480;
+    
         const maxHeight = this.top - this.jumpHeight;
         let velocity = initialJumpSpeed;
-
-        if(this.jumping){
+    
+        if (this.jumping) {
           this.element.src = "../images/rolling.gif";
         }
     
@@ -59,10 +59,7 @@ class Player {
           if (this.top >= maxHeight) {
             this.updatePosition();
           } else {
-            velocity = -velocity * 0.6;
-    
-            if (velocity < 1) {
-              clearInterval(jumpInterval);
+            if (velocity < -initialJumpSpeed) {
               this.jumping = false;
             }
           }
@@ -73,7 +70,12 @@ class Player {
             this.top = maxY;
             this.jumping = false;
           }
-        }, 16); 
+    
+          if (!this.jumping) {
+            clearInterval(jumpInterval);
+            this.element.src = "../images/sonic.png";
+          }
+        }, 16);
       }
     }
   
