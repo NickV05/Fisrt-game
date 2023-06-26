@@ -7,6 +7,7 @@ class Game {
           500,
           100,
           150,
+          "../images/sonic.png"
         );
         this.gameIsOver = false;
       }
@@ -16,7 +17,6 @@ class Game {
         this.gameLoop();
       }
       gameLoop() {
-        console.log("game loop")
         if (this.gameIsOver) {
           return;
         }
@@ -26,6 +26,7 @@ class Game {
       
       update() {
         console.log("in the update");
+        
         this.player.move();
         }
       }

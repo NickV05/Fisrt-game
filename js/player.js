@@ -17,11 +17,14 @@ class Player {
   
       this.element.style.left = `${this.left}px`;
       this.element.style.top = `${this.top}px`;
+
+      this.jumping = false;
+      this.jumpHeight = 250; 
+      this.jumpDistance = 0;
   
     }
   
     move() {
-      console.log("move")
       this.left += this.directionX;
       if (this.left < 50) {
         this.left = 50;
@@ -32,9 +35,49 @@ class Player {
   
       this.updatePosition();
     }
+
+    jump() {
+      if (!this.jumping) {
+        console.log("jump")
+        this.jumping = true;
+        const gravity = 0.6;
+        const initialJumpSpeed = 15;
+        const minY = 0; 
+        const maxY = 480; 
+        
+        const maxHeight = this.top - this.jumpHeight;
+        let velocity = initialJumpSpeed;
+
+        if(this.jumping){
+          this.element.src = "../images/rolling.gif";
+        }
+    
+        const jumpInterval = setInterval(() => {
+          this.top -= velocity;
+          velocity -= gravity;
+    
+          if (this.top >= maxHeight) {
+            this.updatePosition();
+          } else {
+            velocity = -velocity * 0.6;
+    
+            if (velocity < 1) {
+              clearInterval(jumpInterval);
+              this.jumping = false;
+            }
+          }
+    
+          if (this.top < minY) {
+            this.top = minY;
+          } else if (this.top > maxY) {
+            this.top = maxY;
+            this.jumping = false;
+          }
+        }, 16); 
+      }
+    }
   
     updatePosition() {
-      console.log("update position")
       this.element.style.left = `${this.left}px`;
       this.element.style.top = `${this.top}px`;
     }
