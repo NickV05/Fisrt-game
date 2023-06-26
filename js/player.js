@@ -7,6 +7,8 @@ class Player {
       this.top = 480;
       this.directionX = 0;
       this.directionY = 0;
+      this.velocityX = 0;
+      this.velocityY = 0;
       this.element = document.createElement("img");
       this.gameScreen.appendChild(this.element);
       this.element.src = "../images/sonic.png";
@@ -21,6 +23,7 @@ class Player {
       this.jumping = false;
       this.jumpHeight = 250; 
       this.jumpDistance = 0;
+      this.pushing = false;
   
     }
   
@@ -73,6 +76,54 @@ class Player {
     
           if (!this.jumping) {
             clearInterval(jumpInterval);
+            this.element.src = "../images/sonic.png";
+          }
+        }, 16);
+      }
+    }
+
+    pushBack(obstacle) {
+      if (!this.pushing) {
+        console.log("jump");
+        this.pushing = true;
+        const gravity = 0.6;
+        const initialJumpSpeed = 17;
+        const minY = 0;
+        const maxY = 480;
+    
+        const maxHeight = this.top - this.jumpHeight;
+        let velocity = initialJumpSpeed;
+    
+        const direction = obstacle.left > this.left ? -1 : 1;
+    
+        if (this.pushing) {
+          this.element.src = "../images/rolling.gif";
+        }
+    
+        const pushInterval = setInterval(() => {
+          this.top -= velocity;
+          velocity -= gravity;
+    
+          
+          this.left += direction * 10;
+    
+          if (this.top >= maxHeight) {
+            this.updatePosition();
+          } else {
+            if (velocity < -initialJumpSpeed) {
+              this.pushing = false;
+            }
+          }
+    
+          if (this.top < minY) {
+            this.top = minY;
+          } else if (this.top > maxY) {
+            this.top = maxY;
+            this.pushing = false;
+          }
+    
+          if (!this.pushing) {
+            clearInterval(pushInterval);
             this.element.src = "../images/sonic.png";
           }
         }, 16);

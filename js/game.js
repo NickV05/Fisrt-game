@@ -1,14 +1,15 @@
 class Game {
     constructor(){
         this.gameScreen = document.getElementById("game-screen");
-        this.player = new Player(
-          this.gameScreen,
-          200,
-          500,
-          100,
-          150,
-          "../images/sonic.png"
-        );
+        this.player = new Player( this.gameScreen,200,500,100,150,"../images/sonic.png");
+        this.bots = [
+          new bee(this.gameScreen, 0, 0, 190, 107, "../images/bee.gif"),
+          new bug(this.gameScreen, 0, 0, 190, 107, "../images/bug.gif"),
+          new crab(this.gameScreen, 0, 0, 180, 150, "../images/crab.gif"),
+          new robot(this.gameScreen, 0, 0, 180, 150, "../images/robot.gif"),
+          new spikes(this.gameScreen, 0, 0, 90, 100, "../images/spikes.gif")
+        ];
+
         this.gameIsOver = false;
         this.enemies = [];
       }
@@ -25,37 +26,50 @@ class Game {
         window.requestAnimationFrame(() => this.gameLoop());
       }
       
+
       update() {
         console.log("in the update");
-        
         this.player.move();
         if (Math.random() > 0.98 && this.enemies.length < 1) {
-          this.enemies.push(new Enemy(this.gameScreen));
+          const randomIndex = Math.floor(Math.random() * (this.bots.length-1));
+          const randomEnemy = this.bots[randomIndex];
+          this.enemies.push(new bee(this.gameScreen));
         }
-
+    
         for (let i = 0; i < this.enemies.length; i++) {
           const obstacle = this.enemies[i];
           obstacle.move();
+          obstacle.element.style.visibility = 'visible';
+          
+          
     
-          if (this.player.didCollide(obstacle)) {
-            obstacle.element.remove();
+      if (this.player.didCollide(obstacle) && this.player.jumping) {
+            const delay1 = setTimeout(() => {
+            obstacle.element.src = "../images/Explosion.gif"
+            const delay2 = setTimeout(() => {
+              obstacle.element.remove();
             this.enemies.splice(i, 1);
-            this.lives--;
-            i--;
+            }, 500);
+          }, 100);
           }
-          else if (obstacle.left > this.height) {
-            // Increase the score by 1
+
+          else if (this.player.didCollide(obstacle) && !this.player.jumping) {
+            
+            this.player.pushBack(obstacle)
+            this.lives--;
+            
+          
+          
+          }
+
+          else if (obstacle.left < 0) {
             this.score++;
-            // Remove the obstacle from the DOM
             obstacle.element.remove();
-            // Remove obstacle object from the array
             this.enemies.splice(i, 1);
-            // Update the counter variable to account for the removed obstacle
             i--;
           }
         }
     
-        // If the lives are 0, end the game
         if (this.lives === 0) {
           this.endGame();
         }
