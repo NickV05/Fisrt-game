@@ -1,10 +1,11 @@
 window.onload = function () {
       
   const startButton = document.getElementById("but");
+  const audio1 = document.createElement("audio");
+  audio1.src = "../audio/openM.mp3";
 
   but.addEventListener("click", function () {
-    audio = document.getElementById("myAudio");
-  audio.play();
+  audio1.play();
     fadeOut();
     const timeoutId = setTimeout(toggleVisibility, 2500);
     const timeoutId2 = setTimeout(startGame, 2500);

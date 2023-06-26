@@ -30,6 +30,8 @@ class Game {
         this.lives.style.color = "white";
         this.lives.style.fontFamily = "Monospace";
         this.lives.style.fontWeight = "bold";
+        this.audioExplosion = document.createElement("audio");
+        this.audioExplosion.src = "../audio/explos.WAV"
       }
       start() {
         this.gameScreen.style.width = `${this.width}px`;
@@ -73,6 +75,7 @@ class Game {
                 this.imag.style.left = `${obstacleRect.left}px`;
                 this.imag.style.top = `${obstacleRect.top}px`;
                 obstacle.element.remove();
+                this.audioExplosion.play();
                 this.enemies.splice(i, 1);
                 const delay4 = setTimeout(() => { 
                   this.imag.remove();

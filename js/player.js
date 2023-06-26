@@ -20,6 +20,11 @@ class Player {
       this.element.style.left = `${this.left}px`;
       this.element.style.top = `${this.top}px`;
       this.element.style.opacity = "1";
+      this.audio = document.createElement("audio");
+      this.audio.src ="../audio/jump.WAV";
+
+      this.audio2 = document.createElement("audio");
+      this.audio2.src ="../audio/hitted.WAV";
 
       this.jumping = false;
       this.jumpHeight = 250; 
@@ -43,6 +48,7 @@ class Player {
     jump() {
       if (!this.jumping) {
         console.log("jump");
+        this.audio.play();
         this.jumping = true;
         const gravity = 0.6;
         const initialJumpSpeed = 17;
@@ -85,7 +91,7 @@ class Player {
 
     pushBack(obstacle) {
       if (!this.pushing) {
-        console.log("jump");
+        this.audio2.play();
         this.pushing = true;
         const gravity = 0.6;
         const initialJumpSpeed = 15;
