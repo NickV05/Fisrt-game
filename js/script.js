@@ -8,18 +8,9 @@ window.onload = function () {
   audio2.src ="../audio/options.mp3";
 
 
-  but2.addEventListener("click", function () {
-    fadeOut();
-    const timeoutId4 = setTimeout(toggleVisibility2, 1300);
-    const timeoutId5 = setTimeout(playMusic1, 1300);
-    const timeoutId6 = setTimeout(heroSelection, 1300);
-
-  });
-
-
   but.addEventListener("click", function () {
     fadeOut();
-    const timeoutId = setTimeout(toggleVisibility1, 1300);
+    const timeoutId = setTimeout(toggleVisibility2, 1300);
     const timeoutId2 = setTimeout(startGame, 1300);
     const timeoutId3 = setTimeout(playMusic2, 1000);
   });
@@ -99,15 +90,6 @@ window.onload = function () {
     }, 80);
   }
 
-  
-
-  function toggleVisibility1() {
-    let element1 = document.getElementById("startMenu");
-    let element2 = document.getElementById("game-screen");
-    
-    element1.style.display = "none";
-    element2.style.display = "block";
-  }
 
   function toggleVisibility2() {
     let element3 = document.getElementById("startMenu");
@@ -118,13 +100,13 @@ window.onload = function () {
   }
 
   function toggleVisibility3() {
-    let element2 = document.getElementById("select-hero");
-    element2.style.display = "none";
+    let element1 = document.getElementById("select-hero");
+    element1.style.display = "none";
   
-    let element3 = document.getElementById("startMenu");
-    element3.style.display = "flex";
-    
+    let element2 = document.getElementById("game-screen");
+    element2.style.display = "block";
   }
+  
 };
 
 
