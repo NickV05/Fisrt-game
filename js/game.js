@@ -3,13 +3,7 @@ class Game1 {
         this.gameScreen = document.getElementById("game-screen");
         this.player = new Sonic(this.gameScreen);
         console.log(this.player)
-        this.bots = [
-          new bee(this.gameScreen, 0, 0, 190, 107, "../images/bee.gif"),
-          new bug(this.gameScreen, 0, 0, 190, 107, "../images/bug.gif"),
-          new crab(this.gameScreen, 0, 0, 180, 150, "../images/crab.gif"),
-          new robot(this.gameScreen, 0, 0, 180, 150, "../images/robot.gif"),
-        ];
-
+        this.bots = ["bee","bug","crab","robot"];
         this.gameIsOver = false;
         this.enemies = [];
         this.hp = document.createElement("img");
@@ -70,16 +64,27 @@ class Game1 {
       
 
       update() {
-        console.log("in the update");
         this.player.move();
-        if (Math.random() > 0.98 && this.enemies.length < 1) {
-          const randomIndex = Math.floor(Math.random() * (this.bots.length-1));
+        if (Math.random() > 0.2 && this.enemies.length < 1) {
+          const randomIndex = Math.floor(Math.random() * this.bots.length);
           const randomEnemy = this.bots[randomIndex];
-          this.enemies.push(new bug(this.gameScreen));
+          if(randomEnemy == "bee"){
+            this.enemies.push(new bee(this.gameScreen));
+          }
+          else if(randomEnemy == "bug"){
+            this.enemies.push(new bug(this.gameScreen));
+          }
+          else if(randomEnemy == "crab"){
+            this.enemies.push(new crab(this.gameScreen));
+          }
+          else if(randomEnemy == "robot"){
+            this.enemies.push(new robot(this.gameScreen));
+          }
         }
     
         for (let i = 0; i < this.enemies.length; i++) {
           const obstacle = this.enemies[i];
+          console.log(this.enemies)
           obstacle.move();
           obstacle.element.style.visibility = 'visible';
           
@@ -144,13 +149,7 @@ class Game1 {
             this.gameScreen = document.getElementById("game-screen");
             this.player = new Tails(this.gameScreen);
             console.log(this.player)
-            this.bots = [
-              new bee(this.gameScreen, 0, 0, 190, 107, "../images/bee.gif"),
-              new bug(this.gameScreen, 0, 0, 190, 107, "../images/bug.gif"),
-              new crab(this.gameScreen, 0, 0, 180, 150, "../images/crab.gif"),
-              new robot(this.gameScreen, 0, 0, 180, 150, "../images/robot.gif"),
-            ];
-    
+            this.bots = ["bee","bug","crab","robot"];
             this.gameIsOver = false;
             this.enemies = [];
             this.hp = document.createElement("img");
@@ -216,7 +215,18 @@ class Game1 {
             if (Math.random() > 0.98 && this.enemies.length < 1) {
               const randomIndex = Math.floor(Math.random() * (this.bots.length-1));
               const randomEnemy = this.bots[randomIndex];
-              this.enemies.push(new bug(this.gameScreen));
+              if(randomEnemy == "bee"){
+                this.enemies.push(new bee(this.gameScreen));
+              }
+              else if(randomEnemy == "bug"){
+                this.enemies.push(new bug(this.gameScreen));
+              }
+              else if(randomEnemy == "crab"){
+                this.enemies.push(new crab(this.gameScreen));
+              }
+              else if(randomEnemy == "robot"){
+                this.enemies.push(new robot(this.gameScreen));
+              };
             }
         
             for (let i = 0; i < this.enemies.length; i++) {
@@ -286,13 +296,7 @@ class Game1 {
                 this.gameScreen = document.getElementById("game-screen");
                 this.player = new Knuckles(this.gameScreen);
                 console.log(this.player)
-                this.bots = [
-                  new bee(this.gameScreen, 0, 0, 190, 107, "../images/bee.gif"),
-                  new bug(this.gameScreen, 0, 0, 190, 107, "../images/bug.gif"),
-                  new crab(this.gameScreen, 0, 0, 180, 150, "../images/crab.gif"),
-                  new robot(this.gameScreen, 0, 0, 180, 150, "../images/robot.gif"),
-                ];
-        
+                this.bots = ["bee","bug","crab","robot"];
                 this.gameIsOver = false;
                 this.enemies = [];
                 this.hp = document.createElement("img");
@@ -358,8 +362,19 @@ class Game1 {
                 if (Math.random() > 0.98 && this.enemies.length < 1) {
                   const randomIndex = Math.floor(Math.random() * (this.bots.length-1));
                   const randomEnemy = this.bots[randomIndex];
-                  this.enemies.push(new bug(this.gameScreen));
-                }
+                  if(randomEnemy == "bee"){
+                    this.enemies.push(new bee(this.gameScreen));
+                  }
+                  else if(randomEnemy == "bug"){
+                    this.enemies.push(new bug(this.gameScreen));
+                  }
+                  else if(randomEnemy == "crab"){
+                    this.enemies.push(new crab(this.gameScreen));
+                  }
+                  else if(randomEnemy == "robot"){
+                    this.enemies.push(new robot(this.gameScreen));
+                  }
+                };
             
                 for (let i = 0; i < this.enemies.length; i++) {
                   const obstacle = this.enemies[i];
