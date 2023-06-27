@@ -32,6 +32,8 @@ class Game {
         this.lives.style.fontWeight = "bold";
         this.audioExplosion = document.createElement("audio");
         this.audioExplosion.src = "../audio/explos.WAV"
+        this.audioFail = document.createElement("audio");
+        this.audioFail.src = "../audio/gameOver.mp3"
       }
       start() {
         this.gameScreen.style.width = `${this.width}px`;
@@ -44,6 +46,25 @@ class Game {
         }
         this.update();
         window.requestAnimationFrame(() => this.gameLoop());
+      }
+
+      endGame(){
+
+        this.gameIsOver = true;
+        this.gameOv = document.createElement("img");
+        this.gameScreen.appendChild(this.gameOv);
+        this.gameOv.src = "../images/gameOver.jpg";
+        this.gameOv.style.position = "absolute";
+        this.gameOv.style.left = "500px";
+        this.gameOv.style.top = "200px";
+        this.gameOv.width = 450;
+        this.gameOv.height = 300;
+        this.gameOv.style.border = "solid";
+        this.gameOv.style.borderColor = "yellow";
+        this.audioFail.play();
+        audio1.pause();
+
+
       }
       
 

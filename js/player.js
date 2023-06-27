@@ -30,28 +30,8 @@ class Player {
       this.jumpHeight = 250; 
       this.jumpDistance = 0;
       this.pushing = false;
-  
     }
-    changeImageSrc(src) {
-      // Remove the previous image element from the game screen
-      this.gameScreen.removeChild(this.element);
     
-      // Create a new image element
-      this.element = document.createElement("img");
-    
-      // Set the new image source
-      this.element.src = src;
-    
-      // Set the necessary styles and append the new image to the game screen
-      this.element.style.position = "absolute";
-      this.element.style.width = `${this.width}px`;
-      this.element.style.height = `${this.height}px`;
-      this.element.style.left = `${this.left}px`;
-      this.element.style.top = `${this.top}px`;
-      this.element.style.opacity = "1";
-    
-      this.gameScreen.appendChild(this.element);
-    }
 
     move() {
       this.left += this.directionX;

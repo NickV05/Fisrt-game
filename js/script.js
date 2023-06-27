@@ -1,8 +1,4 @@
-window.onload = function () {
-
-      
-  const startButton = document.getElementById("but");
-  const audio1 = document.createElement("audio");
+const audio1 = document.createElement("audio");
   audio1.src = "../audio/openM.mp3";
   const audio2 = document.createElement("audio");
   audio2.src ="../audio/options.mp3";
@@ -15,6 +11,10 @@ window.onload = function () {
   const audio6= document.createElement("audio");
   audio6.src="../audio/selectHEro.wav";
 
+
+window.onload = function () {
+
+  const startButton = document.getElementById("but");
 
   but.addEventListener("click", function () {
     fadeOut();
@@ -88,8 +88,8 @@ window.onload = function () {
   });
 
   hero3.addEventListener("click", function () {
-    const gameScreen = document.getElementById("game-screen");
-    const player = new Player(gameScreen);
+    const game = new Game();
+    const player = game.player;
     player.changeImageSrc("../images/knuckles player.png");
     const timeoutId5 = setTimeout(playMusic5, 400);
     const timeoutId8 = setTimeout(fadeOut2, 1200);
