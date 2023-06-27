@@ -1,4 +1,4 @@
-class bee {
+class Bee {
   constructor(gameScreen, left, top, width, height, imgSrc) {
       this.gameScreen = gameScreen;
       this.width = 190;
@@ -32,7 +32,7 @@ class bee {
       this.updatePosition();
     }
 }
-class bug {
+class Bug {
   constructor(gameScreen, left, top, width, height, imgSrc) {
       this.gameScreen = gameScreen;
       this.width = 190;
@@ -68,7 +68,7 @@ class bug {
     }
 }
 
-class crab {
+class Crab {
   constructor(gameScreen, left, top, width, height, imgSrc) {
       this.gameScreen = gameScreen;
       this.width = 180;
@@ -103,12 +103,12 @@ class crab {
     }
 }
 
-class robot {
+class Robot {
     constructor(gameScreen, left, top, width, height, imgSrc) {
         this.gameScreen = gameScreen;
-        this.width = 180;
+        this.width = 240;
         this.height = 150;
-        this.left = 1350;
+        this.left = 1250;
         this.top = 510;
         this.directionX = 0;
         this.directionY = 0;
@@ -136,6 +136,41 @@ class robot {
         
         this.updatePosition();
       }
+}
+
+class Boss1 {
+  constructor(gameScreen, left, top, width, height, imgSrc) {
+      this.gameScreen = gameScreen;
+      this.width = 300;
+      this.height = 200;
+      this.left = 1200;
+      this.top = 390;
+      this.directionX = 0;
+      this.directionY = 0;
+      this.element = document.createElement("img");
+      this.gameScreen.appendChild(this.element);
+      this.element.src = "../images/eggmanMirror.gif";
+      this.element.style.position = "absolute";
+
+      this.element.style.width = `${this.width}px`;
+      this.element.style.height = `${this.height}px`;
+  
+      this.element.style.left = `${this.left}px`;
+      this.element.style.top = `${this.top}px`;
+      this.element.style.visibility = 'hidden';
+
+    }
+    updatePosition() {
+     
+      this.element.style.left = `${this.left}px`;
+      this.element.style.top = `${this.top}px`;
+    }
+  
+    move() {
+      this.left -= 3;
+      
+      this.updatePosition();
+    }
 }
 
 
