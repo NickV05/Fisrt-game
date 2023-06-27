@@ -1,18 +1,53 @@
 window.onload = function () {
+
       
   const startButton = document.getElementById("but");
   const audio1 = document.createElement("audio");
   audio1.src = "../audio/openM.mp3";
+  const audio2 = document.createElement("audio");
+  audio2.src ="../audio/options.mp3";
 
-  but.addEventListener("click", function () {
-  audio1.play();
+  but2.addEventListener("click", function () {
     fadeOut();
-    const timeoutId = setTimeout(toggleVisibility, 2500);
-    const timeoutId2 = setTimeout(startGame, 2500);
+    const timeoutId4 = setTimeout(toggleVisibility2, 1300);
+    const timeoutId5 = setTimeout(playMusic1, 1300);
+    const timeoutId6 = setTimeout(heroSelection, 1300);
+
   });
 
+
+  but.addEventListener("click", function () {
+    fadeOut();
+    const timeoutId = setTimeout(toggleVisibility1, 1300);
+    const timeoutId2 = setTimeout(startGame, 1300);
+    const timeoutId3 = setTimeout(playMusic2, 1000);
+  });
+
+
+  function playMusic1(){
+    audio2.play();
+  }
+
+  function playMusic2(){
+    audio1.play()
+  }
+
+  function heroSelection() {
+    let h1User = document.getElementById("selectUser");
+    let opacity = 1;
+    let increment = -0.15;
+    
+    setInterval(() => {
+      opacity += increment;
+      h1User.style.opacity = opacity.toFixed(1); 
+      
+      if (opacity <= 0 || opacity >= 1) {
+        increment = -increment; 
+      }
+    }, 100); 
+  }
+
   function startGame() {
-    console.log("start game");
     game = new Game();
     game.start();}
 
@@ -26,17 +61,25 @@ window.onload = function () {
       } else {
         clearInterval(fadeEffect); 
       }
-    }, 100);
+    }, 80);
   }
 
   
 
-  function toggleVisibility() {
+  function toggleVisibility1() {
     let element1 = document.getElementById("startMenu");
     let element2 = document.getElementById("game-screen");
     
     element1.style.display = "none";
     element2.style.display = "block";
+  }
+
+  function toggleVisibility2() {
+    let element3 = document.getElementById("startMenu");
+    let element4 = document.getElementById("select-hero");
+    
+    element3.style.display = "none";
+    element4.style.display = "flex";
   }
 };
 
