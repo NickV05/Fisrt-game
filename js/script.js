@@ -7,6 +7,7 @@ window.onload = function () {
   const audio2 = document.createElement("audio");
   audio2.src ="../audio/options.mp3";
 
+
   but2.addEventListener("click", function () {
     fadeOut();
     const timeoutId4 = setTimeout(toggleVisibility2, 1300);
@@ -47,6 +48,26 @@ window.onload = function () {
     }, 100); 
   }
 
+  hero1.addEventListener("click", function () {
+    
+    const timeoutId8 = setTimeout(fadeOut2, 800);
+    const timeoutId9 = setTimeout(toggleVisibility3, 1500);
+
+  });
+
+  hero2.addEventListener("click", function () {
+
+    const timeoutId10 = setTimeout(fadeOut2, 800);
+    const timeoutId11 = setTimeout(toggleVisibility3, 1500);
+  });
+
+  hero3.addEventListener("click", function () {
+
+    const timeoutId12 = setTimeout(fadeOut2, 800);
+    const timeoutId13 = setTimeout(toggleVisibility3, 1500);
+
+  });
+
   function startGame() {
     game = new Game();
     game.start();}
@@ -58,6 +79,20 @@ window.onload = function () {
       if (opacity > 0) {
         opacity -= 0.1; 
         startM.style.opacity = opacity;
+      } else {
+        clearInterval(fadeEffect); 
+      }
+    }, 80);
+  }
+
+
+  function fadeOut2() {
+    let startM2 = document.getElementById("select-hero");
+    let opacity = 1; 
+    let fadeEffect = setInterval(function() {
+      if (opacity > 0) {
+        opacity -= 0.1; 
+        startM2.style.opacity = opacity;
       } else {
         clearInterval(fadeEffect); 
       }
@@ -80,6 +115,15 @@ window.onload = function () {
     
     element3.style.display = "none";
     element4.style.display = "flex";
+  }
+
+  function toggleVisibility3() {
+    let element2 = document.getElementById("select-hero");
+    element2.style.display = "none";
+  
+    let element3 = document.getElementById("startMenu");
+    element3.style.display = "flex";
+    
   }
 };
 
