@@ -6,22 +6,49 @@ window.onload = function () {
   audio1.src = "../audio/openM.mp3";
   const audio2 = document.createElement("audio");
   audio2.src ="../audio/options.mp3";
+  const audio3 = document.createElement("audio");
+  audio3.src ="../audio/okidoki.mp3";
+  const audio4 = document.createElement("audio");
+  audio4.src="../audio/tailsHero.wav"
+  const audio5 = document.createElement("audio");
+  audio5.src="../audio/knuckles.wav";
+  const audio6= document.createElement("audio");
+  audio6.src="../audio/selectHEro.wav";
 
 
   but.addEventListener("click", function () {
     fadeOut();
     const timeoutId = setTimeout(toggleVisibility2, 1300);
-    const timeoutId2 = setTimeout(startGame, 1300);
-    const timeoutId3 = setTimeout(playMusic2, 1000);
+    const timeoutId3 = setTimeout(playMusic2, 1100);
+    const timeoutId4 = setTimeout(heroSelection, 1300);
+    const timeoutId2 = setTimeout(playMusic6, 1300);
   });
 
 
   function playMusic1(){
-    audio2.play();
+    audio1.play();
   }
 
   function playMusic2(){
-    audio1.play()
+    audio2.play()
+  }
+
+  function playMusic3(){
+    audio3.play()
+  }
+
+  function stopMusic2(){
+    audio2.pause()
+  }
+  function playMusic4(){
+    audio4.play()
+  }
+  function playMusic5(){
+    audio5.play()
+  }
+
+  function playMusic6(){
+    audio6.play()
   }
 
   function heroSelection() {
@@ -40,22 +67,33 @@ window.onload = function () {
   }
 
   hero1.addEventListener("click", function () {
-    
-    const timeoutId8 = setTimeout(fadeOut2, 800);
-    const timeoutId9 = setTimeout(toggleVisibility3, 1500);
+    const timeoutId5 = setTimeout(playMusic3, 400);
+    const timeoutId8 = setTimeout(fadeOut2, 1200);
+    const timeoutId9 = setTimeout(toggleVisibility3, 3000);
+    const timeoutId2 = setTimeout(startGame, 3000);
+    const timeoutId7 = setTimeout(stopMusic2, 2100);
+    const timeoutId6 = setTimeout(playMusic1, 2200);
 
   });
 
   hero2.addEventListener("click", function () {
+    const timeoutId5 = setTimeout(playMusic4, 400);
+    const timeoutId10 = setTimeout(fadeOut2, 1200);
+    const timeoutId9 = setTimeout(toggleVisibility3, 4000);
+    const timeoutId2 = setTimeout(startGame, 4000);
+    const timeoutId7 = setTimeout(stopMusic2, 2100);
+    const timeoutId6 = setTimeout(playMusic1, 4000);
 
-    const timeoutId10 = setTimeout(fadeOut2, 800);
-    const timeoutId11 = setTimeout(toggleVisibility3, 1500);
   });
 
   hero3.addEventListener("click", function () {
+    const timeoutId5 = setTimeout(playMusic5, 400);
+    const timeoutId8 = setTimeout(fadeOut2, 1200);
+    const timeoutId9 = setTimeout(toggleVisibility3, 4000);
+    const timeoutId2 = setTimeout(startGame, 4000);
+    const timeoutId7 = setTimeout(stopMusic2, 2100);
+    const timeoutId6 = setTimeout(playMusic1, 4000);
 
-    const timeoutId12 = setTimeout(fadeOut2, 800);
-    const timeoutId13 = setTimeout(toggleVisibility3, 1500);
 
   });
 
