@@ -77,6 +77,7 @@ window.onload = function () {
   });
 
   hero2.addEventListener("click", function () {
+    
     const timeoutId5 = setTimeout(playMusic4, 400);
     const timeoutId10 = setTimeout(fadeOut2, 1200);
     const timeoutId9 = setTimeout(toggleVisibility3, 4000);
@@ -87,6 +88,9 @@ window.onload = function () {
   });
 
   hero3.addEventListener("click", function () {
+    const gameScreen = document.getElementById("game-screen");
+    const player = new Player(gameScreen);
+    player.changeImageSrc("../images/knuckles player.png");
     const timeoutId5 = setTimeout(playMusic5, 400);
     const timeoutId8 = setTimeout(fadeOut2, 1200);
     const timeoutId9 = setTimeout(toggleVisibility3, 4000);
