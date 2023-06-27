@@ -101,8 +101,8 @@ class Game1 {
           
     
       if (this.player.didCollide(obstacle) && this.player.jumping) {
-                
-                this.imag = document.createElement("img");
+                if(this.score<3){
+                  this.imag = document.createElement("img");
                 this.gameScreen.appendChild(this.imag);
                 this.imag.src = "../images/Explosion.gif";
                 this.imag.width = obstacle.width;
@@ -118,6 +118,23 @@ class Game1 {
                 const delay4 = setTimeout(() => { 
                   this.imag.remove();
                     },500)
+                }
+                else{
+                  let blinkCount = 0;
+                  const blinking = setInterval(() =>{
+                  obstacle.element.style.opacity ="0.4"
+                  if (obstacle.element.style.opacity ="0.4") {
+                  const delay3 = setTimeout(() => { 
+                  obstacle.element.style.opacity = "1"
+                  },100)
+                  };
+                  blinkCount ++;
+                  if(blinkCount >= 3){
+                 clearInterval(blinking)
+                  }
+                  },300);
+
+                }
                 
             
           }
@@ -142,9 +159,11 @@ class Game1 {
           }
 
           else if (obstacle.left < 0) {
-            this.score++;
-            obstacle.element.remove();
+            if(this.score<3){
+              obstacle.element.remove();
             this.enemies.splice(i, 1);
+            }
+            
             
           }
         }

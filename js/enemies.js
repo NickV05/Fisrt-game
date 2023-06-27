@@ -140,37 +140,39 @@ class Robot {
 
 class Boss1 {
   constructor(gameScreen, left, top, width, height, imgSrc) {
-      this.gameScreen = gameScreen;
-      this.width = 300;
-      this.height = 200;
-      this.left = 1200;
-      this.top = 390;
-      this.directionX = 0;
-      this.directionY = 0;
-      this.element = document.createElement("img");
-      this.gameScreen.appendChild(this.element);
-      this.element.src = "../images/eggmanMirror.gif";
-      this.element.style.position = "absolute";
+    this.gameScreen = gameScreen;
+    this.width = 300;
+    this.height = 200;
+    this.left = 1200;
+    this.top = 390;
+    this.directionX = -1; 
+    this.directionY = 0;
+    this.element = document.createElement("img");
+    this.gameScreen.appendChild(this.element);
+    this.element.src = "../images/eggmanMirror.gif";
+    this.element.style.position = "absolute";
+    this.element.style.width = `${this.width}px`;
+    this.element.style.height = `${this.height}px`;
 
-      this.element.style.width = `${this.width}px`;
-      this.element.style.height = `${this.height}px`;
-  
-      this.element.style.left = `${this.left}px`;
-      this.element.style.top = `${this.top}px`;
-      this.element.style.visibility = 'hidden';
+    this.element.style.left = `${this.left}px`;
+    this.element.style.top = `${this.top}px`;
+    this.element.style.visibility = 'hidden';
+  }
 
+  updatePosition() {
+    this.element.style.left = `${this.left}px`;
+    this.element.style.top = `${this.top}px`;
+  }
+
+  move() {
+    if (this.left < 0 || this.left + this.width > this.gameScreen.clientWidth) {
+      this.directionX *= -1;
     }
-    updatePosition() {
-     
-      this.element.style.left = `${this.left}px`;
-      this.element.style.top = `${this.top}px`;
-    }
-  
-    move() {
-      this.left -= 3;
-      
-      this.updatePosition();
-    }
+    
+    this.left += 3 * this.directionX; 
+    
+    this.updatePosition();
+  }
 }
 
 
