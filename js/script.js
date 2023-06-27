@@ -70,40 +70,44 @@ window.onload = function () {
     const timeoutId5 = setTimeout(playMusic3, 400);
     const timeoutId8 = setTimeout(fadeOut2, 1200);
     const timeoutId9 = setTimeout(toggleVisibility3, 3000);
-    const timeoutId2 = setTimeout(startGame, 3000);
+    const timeoutId2 = setTimeout(startGame1, 3000);
     const timeoutId7 = setTimeout(stopMusic2, 2100);
     const timeoutId6 = setTimeout(playMusic1, 2200);
 
   });
 
   hero2.addEventListener("click", function () {
-    
     const timeoutId5 = setTimeout(playMusic4, 400);
     const timeoutId10 = setTimeout(fadeOut2, 1200);
     const timeoutId9 = setTimeout(toggleVisibility3, 4000);
-    const timeoutId2 = setTimeout(startGame, 4000);
+    const timeoutId2 = setTimeout(startGame2, 4000);
     const timeoutId7 = setTimeout(stopMusic2, 2100);
     const timeoutId6 = setTimeout(playMusic1, 4000);
 
   });
 
   hero3.addEventListener("click", function () {
-    const game = new Game();
-    const player = game.player;
-    player.changeImageSrc("../images/knuckles player.png");
     const timeoutId5 = setTimeout(playMusic5, 400);
     const timeoutId8 = setTimeout(fadeOut2, 1200);
     const timeoutId9 = setTimeout(toggleVisibility3, 4000);
-    const timeoutId2 = setTimeout(startGame, 4000);
+    const timeoutId2 = setTimeout(startGame3, 4000);
     const timeoutId7 = setTimeout(stopMusic2, 2100);
     const timeoutId6 = setTimeout(playMusic1, 4000);
 
 
   });
 
-  function startGame() {
-    game = new Game();
+  function startGame1() {
+    game = new Game1();
     game.start();}
+
+  function startGame2() {
+      game = new Game2();
+      game.start();}
+
+  function startGame3() {
+      game = new Game3();
+      game.start();}
 
   function fadeOut() {
     let startM = document.getElementById("startMenu");
@@ -159,12 +163,12 @@ const keyDownHandler = (e) => {
     e.preventDefault();
     if (key === "ArrowLeft") {
       game.player.directionX = -5;
-      game.player.element.src = "../images/running.gif"
+      game.player.element.src = game.player.moveImag;
       game.player.element.style.transform = "scaleX(-1)"
     } else if (key === "ArrowRight") {
       game.player.directionX = 5;
       game.player.element.style.transform = ""
-      game.player.element.src = "../images/running.gif"
+      game.player.element.src = game.player.moveImag;
       
     }
     else if (key === " ") {
@@ -180,10 +184,10 @@ const keyUpHandler = (e) => {
     e.preventDefault();
     if (key === "ArrowLeft" && game.player.directionX === -5) {
       game.player.directionX = 0;
-      game.player.element.src = "../images/sonic.png";
+      game.player.element.src = game.player.stayImag;
     } else if (key === "ArrowRight" && game.player.directionX === 5) {
       game.player.directionX = 0;
-      game.player.element.src = "../images/sonic.png";
+      game.player.element.src = game.player.stayImag;
     }
   }
 };
