@@ -157,6 +157,27 @@ class Boss1 {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
     this.element.style.visibility = 'hidden';
+    this.health = 200;
+    this.createHealthBar();
+  }
+
+  updateHealthBar() {
+    this.healthBar.style.width = `${this.health}px`;
+    this.healthBar.style.left = `${this.left + 80}px`;
+    this.healthBar.style.top = `${this.top - 30}px`;
+  }
+
+  createHealthBar() {
+    this.healthBar = document.createElement("div");
+    this.healthBar.className = "health-bar";
+    this.healthBar.style.height = "20px";
+    this.healthBar.style.backgroundColor = "red";
+    this.healthBar.style.position = "absolute";
+    this.healthBar.style.border = "solid";
+    this.healthBar.style.borderColor = "black";
+
+
+    this.gameScreen.appendChild(this.healthBar);
   }
 
   updatePosition() {
@@ -165,12 +186,23 @@ class Boss1 {
   }
 
   move() {
+    
     if (this.left < 0 || this.left + this.width > this.gameScreen.clientWidth) {
       this.directionX *= -1;
+      if (this.directionX === -1) {
+        this.element.style.transform = "";
+      } else {
+        this.element.style.transform = "scaleX(-1)";
+      }
     }
     
-    this.left += 3 * this.directionX; 
-    
+    this.left += 3 * this.directionX;
+    this.updatePosition();
+    this.updateHealthBar();
+  }
+
+  moveLeft(){
+    this.left -= 6
     this.updatePosition();
   }
 }

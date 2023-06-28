@@ -164,7 +164,7 @@ const keyDownHandler = (e) => {
     if (key === "ArrowLeft") {
       game.player.directionX = -5;
       game.player.element.src = game.player.moveImag;
-      game.player.element.style.transform = "scaleX(-1)"
+      game.player.element.style.transform = "scaleX(-1)";
     } else if (key === "ArrowRight") {
       game.player.directionX = 5;
       game.player.element.style.transform = ""

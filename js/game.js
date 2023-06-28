@@ -60,7 +60,22 @@ class Game1 {
         this.gameOv.style.borderColor = "yellow";
         this.audioFail.play();
         audio1.pause();
+      }
 
+      winGame(){
+        this.gameIsOver = true;
+        this.gameW = document.createElement("img");
+        this.gameScreen.appendChild(this.gameW);
+        this.gameW.src = "../images/win.jpg";
+        this.gameW.style.position = "absolute";
+        this.gameW.style.left = "500px";
+        this.gameW.style.top = "200px";
+        this.gameW.width = 450;
+        this.gameW.height = 300;
+        this.gameW.style.border = "solid";
+        this.gameW.style.borderColor = "yellow";
+        this.audioFail.play();
+        audio1.pause();
 
       }
       
@@ -85,7 +100,7 @@ class Game1 {
             }
           }
         }
-        else{
+        else if(this.score=3){
           if (Math.random() > 0.2 && this.enemies.length < 1){
             this.enemies.push(new Boss1(this.gameScreen))
           }
@@ -102,7 +117,7 @@ class Game1 {
     
       if (this.player.didCollide(obstacle) && this.player.jumping) {
                 if(this.score<3){
-                  this.imag = document.createElement("img");
+                this.imag = document.createElement("img");
                 this.gameScreen.appendChild(this.imag);
                 this.imag.src = "../images/Explosion.gif";
                 this.imag.width = obstacle.width;
@@ -126,13 +141,14 @@ class Game1 {
                   if (obstacle.element.style.opacity ="0.4") {
                   const delay3 = setTimeout(() => { 
                   obstacle.element.style.opacity = "1"
-                  },100)
+                  },500)
                   };
                   blinkCount ++;
+                  obstacle.health -= 0.4;
                   if(blinkCount >= 3){
                  clearInterval(blinking)
                   }
-                  },300);
+                  },500);
 
                 }
                 
@@ -159,12 +175,21 @@ class Game1 {
           }
 
           else if (obstacle.left < 0) {
-            if(this.score<3){
+            if(this.score<3 || this.score >=4){
               obstacle.element.remove();
             this.enemies.splice(i, 1);
             }
-            
-            
+          }
+          if(obstacle.health <= 0){
+            this.score +=2;
+            obstacle.element.src = "../images/eggman-running.gif";
+            obstacle.top + 30;
+            obstacle.moveLeft();
+            this.audioExplosion.play();
+            const delay5 = setTimeout(() => { 
+            this.enemies.splice(i, 1);
+            this.winGame()
+                    },1800)
           }
         }
     
