@@ -70,6 +70,7 @@ class Game1 {
         this.gameOv.style.borderColor = "yellow";
         this.audioFail.play();
         audio1.pause();
+        this.audioMobile.pause();
       }
 
       winGame(){
@@ -285,6 +286,7 @@ class Game1 {
             this.gameOv.style.borderColor = "yellow";
             this.audioFail.play();
             audio1.pause();
+            this.audioMobile.pause();
           }
     
           winGame(){
@@ -501,6 +503,7 @@ class Game1 {
                 this.gameOv.style.borderColor = "yellow";
                 this.audioFail.play();
                 audio1.pause();
+                this.audioMobile.pause();
               }
         
               winGame(){
