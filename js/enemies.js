@@ -187,7 +187,7 @@ class Boss1 {
 
   move() {
     
-    if (this.left < 0 || this.left + this.width > this.gameScreen.clientWidth) {
+    if (this.left < 0 || (this.left-40) + this.width + 40 > this.gameScreen.clientWidth) {
       this.directionX *= -1;
       if (this.directionX === -1) {
         this.element.style.transform = "";

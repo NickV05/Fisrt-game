@@ -19,16 +19,26 @@ class Game1 {
         this.gameScreen.appendChild(this.lives);
         this.lives.textContent = `${this.hpoints}`;
         this.lives.style.position = "absolute";
-        this.lives.style.left = "1390px";
-        this.lives.style.top = "0px";
-        this.lives.style.fontSize = "60px";
+        this.lives.style.left = "1395px";
+        this.lives.style.top = "33px";
+        this.lives.style.fontSize = "40px";
         this.lives.style.color = "white";
         this.lives.style.fontFamily = "Monospace";
         this.lives.style.fontWeight = "bold";
         this.audioExplosion = document.createElement("audio");
         this.audioExplosion.src = "../audio/explos.WAV"
         this.audioFail = document.createElement("audio");
-        this.audioFail.src = "../audio/gameOver.mp3"
+        this.audioFail.src = "../audio/gameOver.mp3";
+        this.audioEggman1 = document.createElement("audio");
+        this.audioEggman1.src = "../audio/eggman1.wav";
+        this.audioEggman2 = document.createElement("audio");
+        this.audioEggman2.src = "../audio/noWay.wav";
+        this.audioEggman3 = document.createElement("audio");
+        this.audioEggman3.src = "../audio/gottago.wav";
+        this.audioMobile = document.createElement("audio");
+        this.audioMobile.src = "../audio/eggmobile.mp3";
+        this.audioVictory = document.createElement("audio");
+        this.audioVictory.src = "../audio/victory.mp3";
 
         this.score = 0;
       }
@@ -74,15 +84,15 @@ class Game1 {
         this.gameW.height = 300;
         this.gameW.style.border = "solid";
         this.gameW.style.borderColor = "yellow";
-        this.audioFail.play();
-        audio1.pause();
+        this.audioMobile.pause();
+        this.audioVictory.play();
 
       }
       
 
       update() {
         this.player.move();
-        if(this.score<3){
+        if(this.score<20){
           if (Math.random() > 0.2 && this.enemies.length < 1) {
             const randomIndex = Math.floor(Math.random() * this.bots.length);
             const randomEnemy = this.bots[randomIndex];
@@ -100,9 +110,12 @@ class Game1 {
             }
           }
         }
-        else if(this.score=3){
+        else if(this.score=20){
           if (Math.random() > 0.2 && this.enemies.length < 1){
             this.enemies.push(new Boss1(this.gameScreen))
+            audio1.pause();
+            this.audioEggman1.play();
+            this.audioMobile.play();
           }
         }
         
@@ -116,7 +129,7 @@ class Game1 {
           
     
       if (this.player.didCollide(obstacle) && this.player.jumping) {
-                if(this.score<3){
+                if(this.score<20){
                 this.imag = document.createElement("img");
                 this.gameScreen.appendChild(this.imag);
                 this.imag.src = "../images/Explosion.gif";
@@ -135,6 +148,7 @@ class Game1 {
                     },500)
                 }
                 else{
+                  this.audioEggman2.play();
                   let blinkCount = 0;
                   const blinking = setInterval(() =>{
                   obstacle.element.style.opacity ="0.4"
@@ -175,7 +189,7 @@ class Game1 {
           }
 
           else if (obstacle.left < 0) {
-            if(this.score<3 || this.score >=4){
+            if(this.score<20 || this.score >=21){
               obstacle.element.remove();
             this.enemies.splice(i, 1);
             }
@@ -185,15 +199,15 @@ class Game1 {
             obstacle.element.src = "../images/eggman-running.gif";
             obstacle.top + 30;
             obstacle.moveLeft();
-            this.audioExplosion.play();
+            this.audioEggman3.play();
             const delay5 = setTimeout(() => { 
             this.enemies.splice(i, 1);
             this.winGame()
-                    },1800)
+                    },2000)
           }
         }
     
-        if (this.hpoints === 0) {
+        if (this.hpoints <= 0) {
           this.endGame();
         }
         }
@@ -220,16 +234,27 @@ class Game1 {
             this.gameScreen.appendChild(this.lives);
             this.lives.textContent = `${this.hpoints}`;
             this.lives.style.position = "absolute";
-            this.lives.style.left = "1390px";
-            this.lives.style.top = "0px";
-            this.lives.style.fontSize = "60px";
+            this.lives.style.left = "1395px";
+            this.lives.style.top = "33px";
+            this.lives.style.fontSize = "40px";
             this.lives.style.color = "white";
             this.lives.style.fontFamily = "Monospace";
             this.lives.style.fontWeight = "bold";
             this.audioExplosion = document.createElement("audio");
             this.audioExplosion.src = "../audio/explos.WAV"
             this.audioFail = document.createElement("audio");
-            this.audioFail.src = "../audio/gameOver.mp3"
+            this.audioFail.src = "../audio/gameOver.mp3";
+            this.audioEggman1 = document.createElement("audio");
+            this.audioEggman1.src = "../audio/eggman1.wav";
+            this.audioEggman2 = document.createElement("audio");
+            this.audioEggman2.src = "../audio/noWay.wav";
+            this.audioEggman3 = document.createElement("audio");
+            this.audioEggman3.src = "../audio/gottago.wav";
+            this.audioMobile = document.createElement("audio");
+            this.audioMobile.src = "../audio/eggmobile.mp3";
+            this.audioVictory = document.createElement("audio");
+            this.audioVictory.src = "../audio/victory.mp3";
+    
             this.score = 0;
           }
           start() {
@@ -260,14 +285,29 @@ class Game1 {
             this.gameOv.style.borderColor = "yellow";
             this.audioFail.play();
             audio1.pause();
+          }
     
+          winGame(){
+            this.gameIsOver = true;
+            this.gameW = document.createElement("img");
+            this.gameScreen.appendChild(this.gameW);
+            this.gameW.src = "../images/win.jpg";
+            this.gameW.style.position = "absolute";
+            this.gameW.style.left = "500px";
+            this.gameW.style.top = "200px";
+            this.gameW.width = 450;
+            this.gameW.height = 300;
+            this.gameW.style.border = "solid";
+            this.gameW.style.borderColor = "yellow";
+            this.audioMobile.pause();
+            this.audioVictory.play();
     
           }
           
     
           update() {
             this.player.move();
-            if(this.score<3){
+            if(this.score<20){
               if (Math.random() > 0.2 && this.enemies.length < 1) {
                 const randomIndex = Math.floor(Math.random() * this.bots.length);
                 const randomEnemy = this.bots[randomIndex];
@@ -285,9 +325,12 @@ class Game1 {
                 }
               }
             }
-            else{
+            else if(this.score=20){
               if (Math.random() > 0.2 && this.enemies.length < 1){
                 this.enemies.push(new Boss1(this.gameScreen))
+                audio1.pause();
+                this.audioEggman1.play();
+                this.audioMobile.play();
               }
             }
             
@@ -301,7 +344,7 @@ class Game1 {
               
         
           if (this.player.didCollide(obstacle) && this.player.jumping) {
-                    
+                    if(this.score<20){
                     this.imag = document.createElement("img");
                     this.gameScreen.appendChild(this.imag);
                     this.imag.src = "../images/Explosion.gif";
@@ -318,6 +361,25 @@ class Game1 {
                     const delay4 = setTimeout(() => { 
                       this.imag.remove();
                         },500)
+                    }
+                    else{
+                      this.audioEggman2.play();
+                      let blinkCount = 0;
+                      const blinking = setInterval(() =>{
+                      obstacle.element.style.opacity ="0.4"
+                      if (obstacle.element.style.opacity ="0.4") {
+                      const delay3 = setTimeout(() => { 
+                      obstacle.element.style.opacity = "1"
+                      },500)
+                      };
+                      blinkCount ++;
+                      obstacle.health -= 0.4;
+                      if(blinkCount >= 3){
+                     clearInterval(blinking)
+                      }
+                      },500);
+    
+                    }
                     
                 
               }
@@ -342,14 +404,25 @@ class Game1 {
               }
     
               else if (obstacle.left < 0) {
-                this.score++;
-                obstacle.element.remove();
+                if(this.score<20 || this.score >=21){
+                  obstacle.element.remove();
                 this.enemies.splice(i, 1);
-                
+                }
+              }
+              if(obstacle.health <= 0){
+                this.score +=2;
+                obstacle.element.src = "../images/eggman-running.gif";
+                obstacle.top + 30;
+                obstacle.moveLeft();
+                this.audioEggman3.play();
+                const delay5 = setTimeout(() => { 
+                this.enemies.splice(i, 1);
+                this.winGame()
+                        },2000)
               }
             }
         
-            if (this.hpoints === 0) {
+            if (this.hpoints <= 0) {
               this.endGame();
             }
             }
@@ -377,16 +450,27 @@ class Game1 {
                 this.gameScreen.appendChild(this.lives);
                 this.lives.textContent = `${this.hpoints}`;
                 this.lives.style.position = "absolute";
-                this.lives.style.left = "1390px";
-                this.lives.style.top = "0px";
-                this.lives.style.fontSize = "60px";
+                this.lives.style.left = "1395px";
+                this.lives.style.top = "33px";
+                this.lives.style.fontSize = "40px";
                 this.lives.style.color = "white";
                 this.lives.style.fontFamily = "Monospace";
                 this.lives.style.fontWeight = "bold";
                 this.audioExplosion = document.createElement("audio");
                 this.audioExplosion.src = "../audio/explos.WAV"
                 this.audioFail = document.createElement("audio");
-                this.audioFail.src = "../audio/gameOver.mp3"
+                this.audioFail.src = "../audio/gameOver.mp3";
+                this.audioEggman1 = document.createElement("audio");
+                this.audioEggman1.src = "../audio/eggman1.wav";
+                this.audioEggman2 = document.createElement("audio");
+                this.audioEggman2.src = "../audio/noWay.wav";
+                this.audioEggman3 = document.createElement("audio");
+                this.audioEggman3.src = "../audio/gottago.wav";
+                this.audioMobile = document.createElement("audio");
+                this.audioMobile.src = "../audio/eggmobile.mp3";
+                this.audioVictory = document.createElement("audio");
+                this.audioVictory.src = "../audio/victory.mp3";
+        
                 this.score = 0;
               }
               start() {
@@ -417,14 +501,29 @@ class Game1 {
                 this.gameOv.style.borderColor = "yellow";
                 this.audioFail.play();
                 audio1.pause();
+              }
         
+              winGame(){
+                this.gameIsOver = true;
+                this.gameW = document.createElement("img");
+                this.gameScreen.appendChild(this.gameW);
+                this.gameW.src = "../images/win.jpg";
+                this.gameW.style.position = "absolute";
+                this.gameW.style.left = "500px";
+                this.gameW.style.top = "200px";
+                this.gameW.width = 450;
+                this.gameW.height = 300;
+                this.gameW.style.border = "solid";
+                this.gameW.style.borderColor = "yellow";
+                this.audioMobile.pause();
+                this.audioVictory.play();
         
               }
               
         
               update() {
                 this.player.move();
-                if(this.score<3){
+                if(this.score<20){
                   if (Math.random() > 0.2 && this.enemies.length < 1) {
                     const randomIndex = Math.floor(Math.random() * this.bots.length);
                     const randomEnemy = this.bots[randomIndex];
@@ -442,9 +541,12 @@ class Game1 {
                     }
                   }
                 }
-                else{
+                else if(this.score=20){
                   if (Math.random() > 0.2 && this.enemies.length < 1){
                     this.enemies.push(new Boss1(this.gameScreen))
+                    audio1.pause();
+                    this.audioEggman1.play();
+                    this.audioMobile.play();
                   }
                 }
                 
@@ -458,7 +560,7 @@ class Game1 {
                   
             
               if (this.player.didCollide(obstacle) && this.player.jumping) {
-                        
+                        if(this.score<20){
                         this.imag = document.createElement("img");
                         this.gameScreen.appendChild(this.imag);
                         this.imag.src = "../images/Explosion.gif";
@@ -475,6 +577,25 @@ class Game1 {
                         const delay4 = setTimeout(() => { 
                           this.imag.remove();
                             },500)
+                        }
+                        else{
+                          this.audioEggman2.play();
+                          let blinkCount = 0;
+                          const blinking = setInterval(() =>{
+                          obstacle.element.style.opacity ="0.4"
+                          if (obstacle.element.style.opacity ="0.4") {
+                          const delay3 = setTimeout(() => { 
+                          obstacle.element.style.opacity = "1"
+                          },500)
+                          };
+                          blinkCount ++;
+                          obstacle.health -= 0.4;
+                          if(blinkCount >= 3){
+                         clearInterval(blinking)
+                          }
+                          },500);
+        
+                        }
                         
                     
                   }
@@ -499,14 +620,25 @@ class Game1 {
                   }
         
                   else if (obstacle.left < 0) {
-                    this.score++;
-                    obstacle.element.remove();
+                    if(this.score<20 || this.score >=21){
+                      obstacle.element.remove();
                     this.enemies.splice(i, 1);
-                    
+                    }
+                  }
+                  if(obstacle.health <= 0){
+                    this.score +=2;
+                    obstacle.element.src = "../images/eggman-running.gif";
+                    obstacle.top + 30;
+                    obstacle.moveLeft();
+                    this.audioEggman3.play();
+                    const delay5 = setTimeout(() => { 
+                    this.enemies.splice(i, 1);
+                    this.winGame()
+                            },2000)
                   }
                 }
             
-                if (this.hpoints === 0) {
+                if (this.hpoints <= 0) {
                   this.endGame();
                 }
                 }
