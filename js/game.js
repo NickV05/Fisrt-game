@@ -172,7 +172,10 @@ class Game1 {
 
           else if (this.player.didCollide(obstacle) && !this.player.jumping) {
             this.player.pushBack(obstacle)
-            this.hpoints -= 1/2;
+            this.hpoints -= Math.ceil(1/2);
+            if(this.hpoints === 4.5 ||this.hpoints === 3.5 ||this.hpoints === 2.5 ||this.hpoints === 1.5 ||this.hpoints === 0.5){
+              this.hpoints += 0.5;
+            }
             this.lives.textContent = `${this.hpoints}`;
             let blinkCount = 0;
             const blinking = setInterval(() =>{
@@ -388,7 +391,10 @@ class Game1 {
     
               else if (this.player.didCollide(obstacle) && !this.player.jumping) {
                 this.player.pushBack(obstacle)
-                this.hpoints -= 1/2;
+                this.hpoints -= Math.ceil(1/2);
+                if(this.hpoints === 4.5 ||this.hpoints === 3.5 ||this.hpoints === 2.5 ||this.hpoints === 1.5 ||this.hpoints === 0.5){
+                this.hpoints += 0.5;
+            }
                 this.lives.textContent = `${this.hpoints}`;
                 let blinkCount = 0;
                 const blinking = setInterval(() =>{
@@ -605,7 +611,10 @@ class Game1 {
         
                   else if (this.player.didCollide(obstacle) && !this.player.jumping) {
                     this.player.pushBack(obstacle)
-                    this.hpoints -= 1/2;
+                    this.hpoints -= Math.ceil(1/2);
+                    if(this.hpoints === 4.5 ||this.hpoints === 3.5 ||this.hpoints === 2.5 ||this.hpoints === 1.5 ||this.hpoints === 0.5){
+                    this.hpoints += 0.5;
+            }
                     this.lives.textContent = `${this.hpoints}`;
                     let blinkCount = 0;
                     const blinking = setInterval(() =>{
