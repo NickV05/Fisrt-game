@@ -85,7 +85,7 @@ body{
 }
 
 #game-screen{
-    background-image: url(../images/newGreen.jpg);
+    background-image: url(../images/greenHills.png);
     background-size:cover;
     position: absolute;
     top:50%;
