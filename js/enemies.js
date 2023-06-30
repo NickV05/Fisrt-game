@@ -9,7 +9,7 @@ class Bee {
       this.directionY = 0;
       this.element = document.createElement("img");
       this.gameScreen.appendChild(this.element);
-      this.element.src = "../images/bee.gif";
+      this.element.src = "./images/bee.gif";
       this.element.style.position = "absolute";
 
       this.element.style.width = `${this.width}px`;
@@ -43,7 +43,7 @@ class Bug {
       this.directionY = 0;
       this.element = document.createElement("img");
       this.gameScreen.appendChild(this.element);
-      this.element.src = "../images/bugMirrored.gif";
+      this.element.src = "./images/bugMirrored.gif";
       this.element.style.position = "absolute";
       this.element.style.transform = "scaleX(-1)"
 
@@ -79,7 +79,7 @@ class Crab {
       this.directionY = 0;
       this.element = document.createElement("img");
       this.gameScreen.appendChild(this.element);
-      this.element.src = "../images/crab2.gif";
+      this.element.src = "./images/crab2.gif";
       this.element.style.position = "absolute";
 
       this.element.style.width = `${this.width}px`;
@@ -114,7 +114,7 @@ class Robot {
         this.directionY = 0;
         this.element = document.createElement("img");
         this.gameScreen.appendChild(this.element);
-        this.element.src = "../images/robot3.gif";
+        this.element.src = "./images/robot3.gif";
         this.element.style.position = "absolute";
 
         this.element.style.width = `${this.width}px`;
@@ -149,7 +149,7 @@ class Boss1 {
     this.directionY = 0;
     this.element = document.createElement("img");
     this.gameScreen.appendChild(this.element);
-    this.element.src = "../images/eggmanMirror.gif";
+    this.element.src = "./images/eggmanMirror.gif";
     this.element.style.position = "absolute";
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
