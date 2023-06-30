@@ -11,9 +11,9 @@ class Sonic {
       this.velocityY = 0;
       this.element = document.createElement("img");
       this.gameScreen.appendChild(this.element);
-      this.element.src = "../images/sonic.png";
-      this.stayImag = "../images/sonic.png";
-      this.moveImag = "../images/running.gif";
+      this.element.src = "./images/sonic.png";
+      this.stayImag = "./images/sonic.png";
+      this.moveImag = "./images/running.gif";
       this.element.style.position = "absolute";
   
       this.element.style.width = `${this.width}px`;
@@ -23,10 +23,10 @@ class Sonic {
       this.element.style.top = `${this.top}px`;
       this.element.style.opacity = "1";
       this.audio = document.createElement("audio");
-      this.audio.src ="../audio/jump.WAV";
+      this.audio.src ="./audio/jump.WAV";
 
       this.audio2 = document.createElement("audio");
-      this.audio2.src ="../audio/hitted.WAV";
+      this.audio2.src ="./audio/hitted.WAV";
 
       this.jumping = false;
       this.jumpHeight = 250; 
@@ -61,7 +61,7 @@ class Sonic {
         let velocity = initialJumpSpeed;
     
         if (this.jumping) {
-          this.element.src = "../images/rolling.gif";
+          this.element.src = "./images/rolling.gif";
         }
     
         const jumpInterval = setInterval(() => {
@@ -85,7 +85,7 @@ class Sonic {
     
           if (!this.jumping) {
             clearInterval(jumpInterval);
-            this.element.src = "../images/sonic.png";
+            this.element.src = "./images/sonic.png";
           }
         }, 16);
       }
@@ -106,7 +106,7 @@ class Sonic {
         const direction = obstacle.left > this.left ? -1 : 1;
     
         if (this.pushing) {
-          this.element.src = "../images/rolling.gif";
+          this.element.src = "./images/rolling.gif";
         }
     
         const pushInterval = setInterval(() => {
@@ -133,7 +133,7 @@ class Sonic {
     
           if (!this.pushing) {
             clearInterval(pushInterval);
-            this.element.src = "../images/sonic.png";
+            this.element.src = "./images/sonic.png";
           }
         }, 16);
       }
@@ -174,9 +174,9 @@ class Sonic {
       this.velocityY = 0;
       this.element = document.createElement("img");
       this.gameScreen.appendChild(this.element);
-      this.element.src = "../images/tails.gif";
-      this.stayImag = "../images/tails.gif";
-      this.moveImag = "../images/tailsRun.gif";
+      this.element.src = "./images/tails.gif";
+      this.stayImag = "./images/tails.gif";
+      this.moveImag = "./images/tailsRun.gif";
       this.element.style.position = "absolute";
   
       this.element.style.width = `${this.width}px`;
@@ -186,10 +186,10 @@ class Sonic {
       this.element.style.top = `${this.top}px`;
       this.element.style.opacity = "1";
       this.audio = document.createElement("audio");
-      this.audio.src ="../audio/jump.WAV";
+      this.audio.src ="./audio/jump.WAV";
 
       this.audio2 = document.createElement("audio");
-      this.audio2.src ="../audio/hitted.WAV";
+      this.audio2.src ="./audio/hitted.WAV";
 
       this.jumping = false;
       this.jumpHeight = 250; 
@@ -224,7 +224,7 @@ class Sonic {
         let velocity = initialJumpSpeed;
     
         if (this.jumping) {
-          this.element.src = "../images/tailsJump.gif";
+          this.element.src = "./images/tailsJump.gif";
         }
     
         const jumpInterval = setInterval(() => {
@@ -248,7 +248,7 @@ class Sonic {
     
           if (!this.jumping) {
             clearInterval(jumpInterval);
-            this.element.src = "../images/tails.gif";
+            this.element.src = "./images/tails.gif";
           }
         }, 16);
       }
@@ -269,7 +269,7 @@ class Sonic {
         const direction = obstacle.left > this.left ? -1 : 1;
     
         if (this.pushing) {
-          this.element.src = "../images/tailsJump.gif";
+          this.element.src = "./images/tailsJump.gif";
         }
     
         const pushInterval = setInterval(() => {
@@ -296,7 +296,7 @@ class Sonic {
     
           if (!this.pushing) {
             clearInterval(pushInterval);
-            this.element.src = "../images/tails.gif";
+            this.element.src = "./images/tails.gif";
           }
         }, 16);
       }
@@ -336,9 +336,9 @@ class Sonic {
       this.velocityY = 0;
       this.element = document.createElement("img");
       this.gameScreen.appendChild(this.element);
-      this.element.src = "../images/knuckles player.png";
-      this.stayImag = "../images/knuckles player.png";
-      this.moveImag = "../images/knucklesMoves.gif";
+      this.element.src = "./images/knuckles player.png";
+      this.stayImag = "./images/knuckles player.png";
+      this.moveImag = "./images/knucklesMoves.gif";
       this.element.style.position = "absolute";
   
       this.element.style.width = `${this.width}px`;
@@ -348,10 +348,10 @@ class Sonic {
       this.element.style.top = `${this.top}px`;
       this.element.style.opacity = "1";
       this.audio = document.createElement("audio");
-      this.audio.src ="../audio/jump.WAV";
+      this.audio.src ="./audio/jump.WAV";
 
       this.audio2 = document.createElement("audio");
-      this.audio2.src ="../audio/hitted.WAV";
+      this.audio2.src ="./audio/hitted.WAV";
 
       this.jumping = false;
       this.jumpHeight = 250; 
@@ -386,7 +386,7 @@ class Sonic {
         let velocity = initialJumpSpeed;
     
         if (this.jumping) {
-          this.element.src = "../images/knicklesJump.gif";
+          this.element.src = "./images/knicklesJump.gif";
           this.element.style.transform = "scaleX(-1)";
         }
     
@@ -411,7 +411,7 @@ class Sonic {
     
           if (!this.jumping) {
             clearInterval(jumpInterval);
-            this.element.src = "../images/knuckles player.png";
+            this.element.src = "./images/knuckles player.png";
             this.element.style.transform = "";
           }
         }, 16);
@@ -433,7 +433,7 @@ class Sonic {
         const direction = obstacle.left > this.left ? -1 : 1;
     
         if (this.pushing) {
-          this.element.src = "../images/knicklesJump.gif";
+          this.element.src = "./images/knicklesJump.gif";
         }
     
         const pushInterval = setInterval(() => {
@@ -460,7 +460,7 @@ class Sonic {
     
           if (!this.pushing) {
             clearInterval(pushInterval);
-            this.element.src = "../images/knuckles player.png";
+            this.element.src = "./images/knuckles player.png";
           }
         }, 16);
       }

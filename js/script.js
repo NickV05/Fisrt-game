@@ -1,15 +1,15 @@
 const audio1 = document.createElement("audio");
-  audio1.src = "../audio/openM.mp3";
+  audio1.src = "./audio/openM.mp3";
   const audio2 = document.createElement("audio");
-  audio2.src ="../audio/options.mp3";
+  audio2.src ="./audio/options.mp3";
   const audio3 = document.createElement("audio");
-  audio3.src ="../audio/okidoki.mp3";
+  audio3.src ="./audio/okidoki.mp3";
   const audio4 = document.createElement("audio");
-  audio4.src="../audio/tailsHero.wav"
+  audio4.src="./audio/tailsHero.wav"
   const audio5 = document.createElement("audio");
-  audio5.src="../audio/knuckles.wav";
+  audio5.src="./audio/knuckles.wav";
   const audio6= document.createElement("audio");
-  audio6.src="../audio/selectHEro.wav";
+  audio6.src="./audio/selectHEro.wav";
 
 
 window.onload = function () {

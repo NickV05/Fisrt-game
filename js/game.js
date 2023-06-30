@@ -8,7 +8,7 @@ class Game1 {
         this.enemies = [];
         this.hp = document.createElement("img");
         this.gameScreen.appendChild(this.hp);
-        this.hp.src = "../images/sonicHP.jpg";
+        this.hp.src = "./images/sonicHP.jpg";
         this.hp.width = 150;
         this.hp.height = 100;
         this.hp.style.position = "absolute";
@@ -26,19 +26,19 @@ class Game1 {
         this.lives.style.fontFamily = "Monospace";
         this.lives.style.fontWeight = "bold";
         this.audioExplosion = document.createElement("audio");
-        this.audioExplosion.src = "../audio/explos.WAV"
+        this.audioExplosion.src = "./audio/explos.WAV"
         this.audioFail = document.createElement("audio");
-        this.audioFail.src = "../audio/gameOver.mp3";
+        this.audioFail.src = "./audio/gameOver.mp3";
         this.audioEggman1 = document.createElement("audio");
-        this.audioEggman1.src = "../audio/eggman1.wav";
+        this.audioEggman1.src = "./audio/eggman1.wav";
         this.audioEggman2 = document.createElement("audio");
-        this.audioEggman2.src = "../audio/noWay.wav";
+        this.audioEggman2.src = "./audio/noWay.wav";
         this.audioEggman3 = document.createElement("audio");
-        this.audioEggman3.src = "../audio/gottago.wav";
+        this.audioEggman3.src = "./audio/gottago.wav";
         this.audioMobile = document.createElement("audio");
-        this.audioMobile.src = "../audio/eggmobile.mp3";
+        this.audioMobile.src = "./audio/eggmobile.mp3";
         this.audioVictory = document.createElement("audio");
-        this.audioVictory.src = "../audio/victory.mp3";
+        this.audioVictory.src = "./audio/victory.mp3";
 
         this.score = 0;
       }
@@ -60,7 +60,7 @@ class Game1 {
         this.gameIsOver = true;
         this.gameOv = document.createElement("img");
         this.gameScreen.appendChild(this.gameOv);
-        this.gameOv.src = "../images/gameOver.jpg";
+        this.gameOv.src = "./images/gameOver.jpg";
         this.gameOv.style.position = "absolute";
         this.gameOv.style.left = "500px";
         this.gameOv.style.top = "200px";
@@ -77,7 +77,7 @@ class Game1 {
         this.gameIsOver = true;
         this.gameW = document.createElement("img");
         this.gameScreen.appendChild(this.gameW);
-        this.gameW.src = "../images/win.jpg";
+        this.gameW.src = "./images/win.jpg";
         this.gameW.style.position = "absolute";
         this.gameW.style.left = "500px";
         this.gameW.style.top = "200px";
@@ -133,7 +133,7 @@ class Game1 {
                 if(this.score<20){
                 this.imag = document.createElement("img");
                 this.gameScreen.appendChild(this.imag);
-                this.imag.src = "../images/Explosion.gif";
+                this.imag.src = "./images/Explosion.gif";
                 this.imag.width = obstacle.width;
                 this.imag.height = obstacle.height;
                 this.imag.style.position = "absolute";
@@ -200,7 +200,7 @@ class Game1 {
           }
           if(obstacle.health <= 0){
             this.score +=2;
-            obstacle.element.src = "../images/eggman-running.gif";
+            obstacle.element.src = "./images/eggman-running.gif";
             obstacle.top + 30;
             obstacle.moveLeft();
             this.audioEggman3.play();
@@ -227,7 +227,7 @@ class Game1 {
             this.enemies = [];
             this.hp = document.createElement("img");
             this.gameScreen.appendChild(this.hp);
-            this.hp.src = "../images/sonicHP.jpg";
+            this.hp.src = "./images/sonicHP.jpg";
             this.hp.width = 150;
             this.hp.height = 100;
             this.hp.style.position = "absolute";
@@ -245,19 +245,19 @@ class Game1 {
             this.lives.style.fontFamily = "Monospace";
             this.lives.style.fontWeight = "bold";
             this.audioExplosion = document.createElement("audio");
-            this.audioExplosion.src = "../audio/explos.WAV"
+            this.audioExplosion.src = "./audio/explos.WAV"
             this.audioFail = document.createElement("audio");
-            this.audioFail.src = "../audio/gameOver.mp3";
+            this.audioFail.src = "./audio/gameOver.mp3";
             this.audioEggman1 = document.createElement("audio");
-            this.audioEggman1.src = "../audio/eggman1.wav";
+            this.audioEggman1.src = "./audio/eggman1.wav";
             this.audioEggman2 = document.createElement("audio");
-            this.audioEggman2.src = "../audio/noWay.wav";
+            this.audioEggman2.src = "./audio/noWay.wav";
             this.audioEggman3 = document.createElement("audio");
-            this.audioEggman3.src = "../audio/gottago.wav";
+            this.audioEggman3.src = "./audio/gottago.wav";
             this.audioMobile = document.createElement("audio");
-            this.audioMobile.src = "../audio/eggmobile.mp3";
+            this.audioMobile.src = "./audio/eggmobile.mp3";
             this.audioVictory = document.createElement("audio");
-            this.audioVictory.src = "../audio/victory.mp3";
+            this.audioVictory.src = "./audio/victory.mp3";
     
             this.score = 0;
           }
@@ -279,7 +279,7 @@ class Game1 {
             this.gameIsOver = true;
             this.gameOv = document.createElement("img");
             this.gameScreen.appendChild(this.gameOv);
-            this.gameOv.src = "../images/gameOver.jpg";
+            this.gameOv.src = "./images/gameOver.jpg";
             this.gameOv.style.position = "absolute";
             this.gameOv.style.left = "500px";
             this.gameOv.style.top = "200px";
@@ -296,7 +296,7 @@ class Game1 {
             this.gameIsOver = true;
             this.gameW = document.createElement("img");
             this.gameScreen.appendChild(this.gameW);
-            this.gameW.src = "../images/win.jpg";
+            this.gameW.src = "./images/win.jpg";
             this.gameW.style.position = "absolute";
             this.gameW.style.left = "500px";
             this.gameW.style.top = "200px";
@@ -352,7 +352,7 @@ class Game1 {
                     if(this.score<20){
                     this.imag = document.createElement("img");
                     this.gameScreen.appendChild(this.imag);
-                    this.imag.src = "../images/Explosion.gif";
+                    this.imag.src = "./images/Explosion.gif";
                     this.imag.width = obstacle.width;
                     this.imag.height = obstacle.height;
                     this.imag.style.position = "absolute";
@@ -419,7 +419,7 @@ class Game1 {
               }
               if(obstacle.health <= 0){
                 this.score +=2;
-                obstacle.element.src = "../images/eggman-running.gif";
+                obstacle.element.src = "./images/eggman-running.gif";
                 obstacle.top + 30;
                 obstacle.moveLeft();
                 this.audioEggman3.play();
@@ -447,7 +447,7 @@ class Game1 {
                 this.enemies = [];
                 this.hp = document.createElement("img");
                 this.gameScreen.appendChild(this.hp);
-                this.hp.src = "../images/sonicHP.jpg";
+                this.hp.src = "./images/sonicHP.jpg";
                 this.hp.width = 150;
                 this.hp.height = 100;
                 this.hp.style.position = "absolute";
@@ -465,19 +465,19 @@ class Game1 {
                 this.lives.style.fontFamily = "Monospace";
                 this.lives.style.fontWeight = "bold";
                 this.audioExplosion = document.createElement("audio");
-                this.audioExplosion.src = "../audio/explos.WAV"
+                this.audioExplosion.src = "./audio/explos.WAV"
                 this.audioFail = document.createElement("audio");
-                this.audioFail.src = "../audio/gameOver.mp3";
+                this.audioFail.src = "./audio/gameOver.mp3";
                 this.audioEggman1 = document.createElement("audio");
-                this.audioEggman1.src = "../audio/eggman1.wav";
+                this.audioEggman1.src = "./audio/eggman1.wav";
                 this.audioEggman2 = document.createElement("audio");
-                this.audioEggman2.src = "../audio/noWay.wav";
+                this.audioEggman2.src = "./audio/noWay.wav";
                 this.audioEggman3 = document.createElement("audio");
-                this.audioEggman3.src = "../audio/gottago.wav";
+                this.audioEggman3.src = "./audio/gottago.wav";
                 this.audioMobile = document.createElement("audio");
-                this.audioMobile.src = "../audio/eggmobile.mp3";
+                this.audioMobile.src = "./audio/eggmobile.mp3";
                 this.audioVictory = document.createElement("audio");
-                this.audioVictory.src = "../audio/victory.mp3";
+                this.audioVictory.src = "./audio/victory.mp3";
         
                 this.score = 0;
               }
@@ -499,7 +499,7 @@ class Game1 {
                 this.gameIsOver = true;
                 this.gameOv = document.createElement("img");
                 this.gameScreen.appendChild(this.gameOv);
-                this.gameOv.src = "../images/gameOver.jpg";
+                this.gameOv.src = "./images/gameOver.jpg";
                 this.gameOv.style.position = "absolute";
                 this.gameOv.style.left = "500px";
                 this.gameOv.style.top = "200px";
@@ -516,7 +516,7 @@ class Game1 {
                 this.gameIsOver = true;
                 this.gameW = document.createElement("img");
                 this.gameScreen.appendChild(this.gameW);
-                this.gameW.src = "../images/win.jpg";
+                this.gameW.src = "./images/win.jpg";
                 this.gameW.style.position = "absolute";
                 this.gameW.style.left = "500px";
                 this.gameW.style.top = "200px";
@@ -572,7 +572,7 @@ class Game1 {
                         if(this.score<20){
                         this.imag = document.createElement("img");
                         this.gameScreen.appendChild(this.imag);
-                        this.imag.src = "../images/Explosion.gif";
+                        this.imag.src = "./images/Explosion.gif";
                         this.imag.width = obstacle.width;
                         this.imag.height = obstacle.height;
                         this.imag.style.position = "absolute";
@@ -639,7 +639,7 @@ class Game1 {
                   }
                   if(obstacle.health <= 0){
                     this.score +=2;
-                    obstacle.element.src = "../images/eggman-running.gif";
+                    obstacle.element.src = "./images/eggman-running.gif";
                     obstacle.top + 30;
                     obstacle.moveLeft();
                     this.audioEggman3.play();
