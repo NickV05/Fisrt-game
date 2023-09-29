@@ -149,8 +149,8 @@ window.onload = function () {
     let element1 = document.getElementById("select-hero");
     element1.style.display = "none";
   
-    let element2 = document.getElementById("game-screen");
-    element2.style.display = "block";
+    let element2 = document.getElementById("startMenu");
+    element2.style.display = "flex";
   }
   
 };

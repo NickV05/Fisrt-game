@@ -2,7 +2,6 @@ class Game1 {
     constructor(){
         this.gameScreen = document.getElementById("game-screen");
         this.player = new Sonic(this.gameScreen);
-        console.log(this.player)
         this.bots = ["Bee","Bug","Crab","Robot"];
         this.gameIsOver = false;
         this.enemies = [];
@@ -123,7 +122,6 @@ class Game1 {
     
         for (let i = 0; i < this.enemies.length; i++) {
           let obstacle = this.enemies[i];
-          console.log(this.enemies)
           obstacle.move();
           obstacle.element.style.visibility = 'visible';
           
@@ -221,7 +219,6 @@ class Game1 {
         constructor(){
             this.gameScreen = document.getElementById("game-screen");
             this.player = new Tails(this.gameScreen);
-            console.log(this.player)
             this.bots = ["Bee","Bug","Crab","Robot"];
             this.gameIsOver = false;
             this.enemies = [];
@@ -342,7 +339,6 @@ class Game1 {
         
             for (let i = 0; i < this.enemies.length; i++) {
               let obstacle = this.enemies[i];
-              console.log(this.enemies)
               obstacle.move();
               obstacle.element.style.visibility = 'visible';
               
@@ -441,7 +437,6 @@ class Game1 {
             constructor(){
                 this.gameScreen = document.getElementById("game-screen");
                 this.player = new Knuckles(this.gameScreen);
-                console.log(this.player)
                 this.bots = ["Bee","Bug","Crab","Robot"];
                 this.gameIsOver = false;
                 this.enemies = [];
@@ -562,7 +557,6 @@ class Game1 {
             
                 for (let i = 0; i < this.enemies.length; i++) {
                   let obstacle = this.enemies[i];
-                  console.log(this.enemies)
                   obstacle.move();
                   obstacle.element.style.visibility = 'visible';
                   

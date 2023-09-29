@@ -49,7 +49,6 @@ class Sonic {
 
     jump() {
       if (!this.jumping) {
-        console.log("jump");
         this.audio.play();
         this.jumping = true;
         const gravity = 0.6;
@@ -212,7 +211,6 @@ class Sonic {
 
     jump() {
       if (!this.jumping) {
-        console.log("jump");
         this.audio.play();
         this.jumping = true;
         const gravity = 0.6;
@@ -374,7 +372,6 @@ class Sonic {
 
     jump() {
       if (!this.jumping) {
-        console.log("jump");
         this.audio.play();
         this.jumping = true;
         const gravity = 0.6;
